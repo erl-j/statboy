@@ -1,3 +1,14 @@
+body{
+   background-color:beige; 
+  filter:saturate(200%) invert(0);
+  animation-name:flicker;
+  animation-duration:1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  font-family: 'Times New Roman', Times, serif;
+
+}
+
 h1{
   font-size: 5rem;
   width:50%;
@@ -11,17 +22,6 @@ h1{
   animation-fill-mode: forwards;
   background-image: linear-gradient(-90deg, purple,cyan);
   transform: skewX(-10deg);
-
-}
-
-body{
-  background-color:beige;
-  filter:invert(0) saturate(250%);
-  animation-name:flicker;
-  animation-duration:1s;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-  font-family: 'Times New Roman', Times, serif;
 
 }
 
@@ -72,9 +72,21 @@ h3{
 }
 
 @keyframes slideIn{
-  0%{transform: translateX(-4rem);
+  0%{transform: translateX(-40rem);
     }
   100%{}
+}
+
+@keyframes slideOut{
+  0%{
+    }
+  100%{transform: translateX(40rem);}
+}
+
+.exiter{
+  animation-name: slideOut;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
 }
 
 input{
@@ -96,5 +108,6 @@ input:focus{
   font-size: 3rem;
   color:  rgb(109, 6, 129);
   background-image:linear-gradient(30deg, rgba(0, 155, 28, 0.308),rgba(0, 0, 255, 0.301));
+  text-shadow: 0.1rem 0.1rem whitesmoke, -0.1rem -0.1rem greenyellow;
 }
 
