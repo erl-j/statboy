@@ -16,7 +16,7 @@ h1{
 
 body{
   background-color:beige;
-  filter:invert(1);
+  /* filter:invert(0.1) saturate(150%); */
   animation-name:flicker;
   animation-duration:1s;
   animation-timing-function: ease-out;
@@ -24,10 +24,10 @@ body{
 }
 
 
-@keyframes flicker{
+/* @keyframes flicker{
   0%{filter:invert(1)}
   100%{filter:invert(0) saturate(150%)}
-}
+} */
 
 @keyframes rainbow{
     0%{
