@@ -5,7 +5,7 @@ class QuestionDisplay extends Component {
 	render() {
 		return (
             this.props.question?
-			<div >
+			<div className="text-left">
 				<h2>{this.props.question.q}</h2>
 				<h3 >{this.props.question.unit}</h3>
 			</div>

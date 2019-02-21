@@ -1,4 +1,14 @@
 
+.inv * {
+  animation-name: invert;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes invert{
+  0%{}
+  100%{filter:hue-rotate(50deg);}
+}
 
 body{
   background-color:beige;
@@ -6,6 +16,10 @@ body{
   /* font-family: 'Times New Roman', Times, serif; */
   font-family: 'Times New Roman', Times, serif;
   font-style: italic;
+}
+
+.bb{
+  
 }
 
 h1{
@@ -112,4 +126,7 @@ input:focus{
   color:  rgb(109, 6, 129);
   text-shadow: 0.1rem -0.1rem lightgreen;
 }
+
+
+
 

@@ -10,18 +10,19 @@ class App extends Component {
 		this.api = new qAPI();
 		this.state = {
 			id: 0,
-			question: null, 
+			question: null,
 			oldQuestion: null,
 			guess: '',
 			answered: false,
 			totalScore: 0,
+			negativeMode: false,
 		};
 		this.api.getQuestion(this.state.id).then(res => this.setState({ question: res }));
 	}
 
 	onEnter() {
 		if (this.state.answered) {
-			this.setState({ totalScore: this.state.totalScore + this.state.score, oldQuestion:this.state.question });
+			this.setState({ totalScore: this.state.totalScore + this.state.score, oldQuestion: this.state.question });
 			this.api
 				.getQuestion(this.state.id + 1)
 				.then(res => this.setState({ question: res, id: this.state.id + 1, answered: false, score: 9999999 }));
@@ -37,15 +38,25 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className="row ">
-				<div className="col border-bottom">
-					<h1 className="text-center">STATBOY</h1>
+			<div className={this.state.negativeMode == true ? "row inv" : "row"}>
+			 >
+				<div className="col bb">
+					<h1 className="text-center"
+					onClick={() => {
+						this.setState({ negativeMode: !this.state.negativeMode }, this.forceUpdate);
+						console.log('h1 clicked');
+					}}
+					>STATBOY</h1>
 				</div>
 				<div className="w-100" />
 				<div className="col ">
 					<div className="mt-5 ml-5">
 						{this.state.question != null ? (
-							<QuestionHolder key={this.state.question.id} question={this.state.question} oldQuestion={this.state.oldQuestion} />
+							<QuestionHolder
+								key={this.state.question.id}
+								question={this.state.question}
+								oldQuestion={this.state.oldQuestion}
+							/>
 						) : (
 							''
 						)}
@@ -53,14 +64,14 @@ class App extends Component {
 				</div>
 				<div className="w-100" />
 				<div className="col text-center">
-					<input 
+					<input
 						onKeyPress={e => (e.keyCode || e.charCode == 13 ? this.onEnter() : '')}
 						onChange={e => this.setState({ guess: e.target.value })}
 					/>
 				</div>
 				<div className="w-100" />
 				<div className="col">
-					<h3 className="text-center">{this.state.answered ? this.state.question.a : 'press enter'} </h3>
+					<h3 className="text-center">{this.state.answered ? this.state.question.a : '?'} </h3>
 				</div>
 				<div className="w-100" />
 				<div className="col">
