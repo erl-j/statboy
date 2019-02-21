@@ -71,13 +71,15 @@ class App extends Component {
 				</div>
 				<div className="w-100" />
 				<div className="col">
-					<h3 className="text-center">{this.state.answered ? this.state.question.a : '?'} </h3>
+					<h3 
+					className={this.state.answered?"text-center answer":"text-center"}	
+					>{this.state.answered ? this.state.question.a : '?'} </h3>
 				</div>
 				<div className="w-100" />
 				<div className="col">
-					<h3 className="text-left ml-5">
+					<h3 className={this.state.answered?"text-left ml-5 answer":"text-left ml-5"}>
 						score:
-						{this.state.answered ? this.state.score.toFixed(4) : '-'}
+						{this.state.answered ? this.state.score.toFixed(4) : ''}
 					</h3>
 				</div>
 				<div className="w-100" />
