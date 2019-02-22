@@ -6,7 +6,7 @@ class QuestionHolder extends Component {
 	render() {
 		return (
 			<div
-			 style={{ position: 'relative'}}
+			 style={{ position: 'relative', height:"10rem"}}
 			>
 				<div className="enterer" style={{ position: "relative", top: '0rem'}}>
 					<QuestionDisplay question={this.props.question}  />

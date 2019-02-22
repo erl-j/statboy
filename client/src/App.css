@@ -51,7 +51,7 @@ h1{
 
 h2{
 
-  color:rgb(243, 2, 243);
+  color:rgb(146, 60, 226);
   /* transform: skewX(-10deg); */
   text-shadow: 0.1rem 0.1rem rgba(200,100,100,0.3), -0.1rem -0.1rem rgba(100,200,100,0.3);
 }
@@ -79,14 +79,14 @@ h3{
 }
 
 @keyframes slideIn{
-  0%{transform: translateX(-30rem);
+  0%{transform: translateX(-60rem);
     }
   100%{}
 }
 
 @keyframes slideOut{
   0%{}
-  100%{transform: translateX(40rem);
+  100%{transform: translateX(60rem);
     opacity:0;
     }
 }
