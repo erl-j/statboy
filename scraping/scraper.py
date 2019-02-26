@@ -38,8 +38,8 @@ def parseDate(ul):
 
 id=0
 f = open("Dates/events.json".format(), "w")
-f.write("dates={")
-for d in range(1850,1859): 
+f.write("dates=[")
+for d in range(0,2000): 
 
     print("scraping article for year {}".format(d))
     
@@ -48,9 +48,10 @@ for d in range(1850,1859):
     response = requests.get(url)
     soup = BeautifulSoup(response.content, "html.parser")
 
-    el = soup.find("span", attrs={"id": "Events"}).parent
+    
 
     try:
+        el = soup.find("span", attrs={"id": "Events"}).parent
         events=[]
         while True:
             el=el.next_sibling
@@ -70,4 +71,4 @@ for d in range(1850,1859):
         print("Error while scraping article for year {}".format(d))
         pass
 
-f.write("}")
+f.write("]")

@@ -9,7 +9,7 @@ class App extends Component {
 		super();
 		this.api = new qAPI();
 		this.state = {
-			id: 0,
+			id: Math.floor(Math.random() * 39440),
 			question: null,
 			oldQuestion: null,
 			guess: '',
@@ -22,10 +22,11 @@ class App extends Component {
 
 	onEnter() {
 		if (this.state.answered) {
-			this.setState({ totalScore: this.state.totalScore + this.state.score, oldQuestion: this.state.question });
-			this.api
-				.getQuestion(this.state.id + 1)
-				.then(res => this.setState({ question: res, id: this.state.id + 1, answered: false, score: 9999999 }));
+			this.setState({ totalScore: this.state.totalScore + this.state.score, oldQuestion: this.state.question, id: Math.floor(Math.random() * 39440) },
+			()=>this.api
+			.getQuestion(this.state.id)
+			.then(res => this.setState({ question: res, id: this.state.id, answered: false, score: 9999999 })))
+		;
 		} else {
 			this.setState({
 				score:
@@ -50,7 +51,7 @@ class App extends Component {
 				</div>
 				<div className="w-100" />
 				<div className="col ">
-					<div className="mt-5 ml-5">
+					<div className="mt-5 ml-5 mr-5">
 						{this.state.question != null ? (
 							<QuestionHolder
 								key={this.state.question.id}
